@@ -28,7 +28,7 @@ resources:
     StackTagName:
       Type: String
       Description: Stack Name (injected by Stackery at deployment time)
-      Default: node8-sls-template-path
+      Default: node10-sls-template-path
     EnvironmentTagName:
       Type: String
       Description: Environment Name (injected by Stackery at deployment time)
