@@ -1,11 +1,10 @@
-service: node8-sls-template-path
+service: node10-sls-template-path
 provider:
   name: aws
-  runtime: nodejs8.10
+  runtime: nodejs10.x
 plugins:
   - serverless-iam-roles-per-function
   - serverless-cf-vars
-  - serverless-iam-roles-per-function
 functions:
   Function:
     handler: index.handler
@@ -14,23 +13,6 @@ functions:
         - 'Stack #{StackTagName} Environment #{EnvironmentTagName} Function #{ResourceName}'
         - ResourceName: Function
     runtime: nodejs10.x
-    tracing: Active
-    iamRoleStatements:
-      - Effect: Allow
-        Action:
-          - xray:PutTraceSegments
-          - xray:PutTelemetryRecords
-          - xray:GetSamplingRules
-          - xray:GetSamplingTargets
-          - xray:GetSamplingStatisticSummaries
-        Resource: '*'
-  Function2:
-    handler: handler.handler
-    description:
-      Fn::Sub:
-        - 'Stack #{StackTagName} Environment #{EnvironmentTagName} Function #{ResourceName}'
-        - ResourceName: Function2
-    runtime: python3.7
     tracing: Active
     iamRoleStatements:
       - Effect: Allow
