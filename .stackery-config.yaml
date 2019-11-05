@@ -1,2 +1,2 @@
-stack-name: node8-sls-template-path
+stack-name: node10-sls-template-path
 template-path: templates/serverless.yml
